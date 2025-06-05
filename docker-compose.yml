@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:10.3
+    container_name: quarm-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: quarm
+    ports:
+      - "3306:3306"
+    volumes:
+      # Your .sql files will be executed on first startup
+      - ./sql:/docker-entrypoint-initdb.d

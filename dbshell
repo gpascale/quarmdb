@@ -1,0 +1,2 @@
+#!/bin/bash
+docker exec -it quarm-db mysql -uroot -pquarm quarm
